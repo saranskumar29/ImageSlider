@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h2>Image Slider</h2>
+    <div class="slider-container">
+      <img id="sliderImage" src="" alt="Image Slider" />
+    </div>
+    <div class="btn-container">
+      <button onclick="prevImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+      let images = [
+        "https://cdn.pixabay.com/photo/2024/06/20/12/26/child-8842052_1280.jpg",
+        "https://cdn.pixabay.com/photo/2024/09/19/07/30/horses-9057950_1280.jpg",
+        "https://cdn.pixabay.com/photo/2024/10/22/07/09/kids-9138810_1280.jpg",
+        "https://cdn.pixabay.com/photo/2020/06/20/11/09/cat-5320572_1280.jpg",
+        "https://cdn.pixabay.com/photo/2023/09/16/15/00/macaque-8256950_1280.jpg",
+      ];
+
+      let currentIndex = 0;
+      function updateImage() {
+        document.getElementById("sliderImage").src = images[currentIndex];
+      }
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+      updateImage();
+    </script>
+  </body>
+</html>
